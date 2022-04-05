@@ -1,0 +1,44 @@
+version: '3'
+services:
+
+  mysql:
+    container_name: "MySQL_Server"
+    image: mariadb:10.7
+    ports:
+      - 3308:3306
+    expose:
+      - 3308
+    environment:
+      MYSQL_ROOT_PASSWORD: "miquelangel"
+      MYSQL_DATABASE: "wordpress"
+      MYSQL_USER: "mangel"
+      MYSQL_PASSWORD: "miquelangel"
+
+  mongo:
+    container_name: "MongoDB"
+    image: mongo
+    ports: 
+      - 27017:27017
+    expose:
+      - 27017
+
+  redis:
+    container_name: "Redis"
+    image: redis
+    ports:
+      - 6379:6379
+    expose:
+      - 6379
+
+  minecraft:
+    container_name: "Minecraft-Server"
+    image: phyremaster/papermc
+    environment:
+      MC_VERSION: "1.8.8"
+      MC_RAM: "1G"
+    ports:
+      - 25565:25565
+    expose:
+      - 25565
+    volumes:
+      - ./volumes/paper1.8:/papermc
