@@ -29,7 +29,9 @@ services:
 
   adminer:
     container_name: "Database_Manager"
-    image: adminer
+    image: adminer:4.8.1
     restart: always
     ports:
       - 8080:8080
+    expose:
+      - 8080
