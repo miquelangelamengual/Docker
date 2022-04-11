@@ -28,6 +28,7 @@ services:
       MYSQL_PASSWORD: "miquelangel"
 
   adminer:
+    container_name: "Database_Manager"
     image: adminer
     restart: always
     ports:
