@@ -1,27 +1,5 @@
 version: '3'
 services:
-  servidorweb:
-    container_name: "Apache"
-    image: httpd:2.4
-    volumes:
-      - ./volumes/paginaweb:/usr/local/apache2/htdocs
-    ports:
-      - "1234:80"
-    expose:
-      - "1234"
-    
-  mysqlserver:
-    container_name: "MySQL"
-    image: mysql:8.0
-    ports:
-      - "3307:3306"
-    expose:
-      - "3307"
-    environment:
-      MYSQL_ROOT_PASSWORD: "123456789"
-      MYSQL_DATABASE: "wordpress"
-      MYSQL_USER: "mangel"
-      MYSQL_PASSWORD: "miquelangel"
 
   wordpress:
     container_name: "Wordpress"
