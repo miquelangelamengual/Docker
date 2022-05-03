@@ -2,7 +2,8 @@
 <html lang="en">
 <head></head>
 <body>
-<form action='exempleSI.php' method="post">
+
+<form action='' method="post">
     <input type="text" name="email" required="required"/>
     <input type="password" name="password"/>
     <input type="submit" value="Submit"/>
@@ -15,33 +16,33 @@ if($_POST){
     $pass = $_POST["password"];
 
     //Connexió BBDD
-    $servername = "mariadb";
+    $servername = "basededades";
     $username = "root";
-    $password = "miquelangel";
-    $db = "wordpress";
+    $password = "sistemes";
+    $db = "si";
 
     $conn = new mysqli($servername, $username, $password,$db);
 
     //Comprovem si l'usuari i contrasenya són vàlids
-    $sql = "select * from users where email=\"".$email."\" and password=\"".$pass."\"";
+    $sql = "select * from user where email=\"".$email."\" and password=\"".$pass."\"";
 
     echo $sql;
 
     $result=mysqli_query($conn,$sql);
+
     $rowcount=mysqli_num_rows($result);
 
     echo "<br>";
     if($rowcount > 0){
         echo "LOGIN!!";
 
-        $sql2 = "select * from users";
-        $result=mysqli_query($conn,$sql);
-        echo "<ul>";
-        while ($row = $result->fetch_array())
-        {
-            echo '<li>'.$row[0]. ' - '.$row[1].'</li>';
+        session_start();
+        if($row = $result->fetch_assoc()){
+            $obj = new stdClass();
+            $obj->user = $row["email"];
+            $_SESSION["USER"] = $obj;
         }
-        echo "</ul>";
+
     } else {
         echo "ERROR LOGIN";
     }
