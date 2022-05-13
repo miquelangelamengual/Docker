@@ -1,0 +1,47 @@
+version: '3'
+services:
+  php:
+    build:
+      context: ./dockerfiles
+      dockerfile: apache
+    volumes:
+      - ./volumes/apache:/var/www/html
+    expose:
+      - 80
+    ports:
+      - 80:80
+
+  mariadb:
+    image: mariadb:10.7
+    environment:
+      - MARIADB_ROOT_PASSWORD=sistemes
+      - MARIADB_DATABASE=si
+      - MARIADB_USER=daw
+      - MARIADB_PASSWORD=12345678
+    expose:
+      - 3307
+    ports:
+      - 3307:3306
+    volumes:
+      - ./volumes/mariadb:/var/lib/mysql
+
+  backend:
+    build:
+      context: ./dockerfiles
+      dockerfile: apache
+    volumes:
+      - ./volumes:/home/node/app
+    ports:
+      - 8081:3000
+    expose:
+      - 8081
+
+  phpmyadmin:
+    image: phpmyadmin:5.1.3-apache
+    restart: always
+    ports:
+      - 8083:80
+    expose:
+      - 8080
+    environment:
+      - PMA_ARBITRARY=1

@@ -6,7 +6,7 @@
 $idusuari = $_GET["user"];
 
 //Connexió BBDD
-$servername = "basededades";
+$servername = "basededades";    
 $username = "root";
 $password = "sistemes";
 $db = "si";
