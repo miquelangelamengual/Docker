@@ -1,10 +1,20 @@
 version: '3'
 services:
 
+    laravel:
+      image: bitnami/laravel:9
+      volumes:
+        - ./volumes/laravel:/app
+      ports:
+        - "8000:8000"
+      expose:
+        - "8000"
+      command: php artisan serve
+
     basededades:
       image: mariadb:10.7
       environment:
-        - MARIADB_ROOT_PASSWORD=gestibgsuite
+        - MARIADB_ROOT_PASSWORD=sistemes
         - MARIADB_DATABASE=gestibgsuite
         - MARIADB_USER=gestibgsuite
         - MARIADB_PASSWORD=gestibgsuite

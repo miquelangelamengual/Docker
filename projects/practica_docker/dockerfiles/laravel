@@ -1,0 +1,3 @@
+FROM bitnami/laravel:9
+
+RUN php artisan make:controller ResizeController
