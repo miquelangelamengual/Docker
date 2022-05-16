@@ -2,12 +2,14 @@ version: '3'
 services:
 
     mariadb:
-      image: mariadb:10.7
+      build:
+        context: ./dockerfiles
+        dockerfile: mariadb
       environment:
         - MARIADB_ROOT_PASSWORD=sistemes
-        - MARIADB_DATABASE=si
-        - MARIADB_USER=daw
-        - MARIADB_PASSWORD=12345678
+        - MARIADB_DATABASE=gestibgsuite
+        - MARIADB_USER=gestibgsuite
+        - MARIADB_PASSWORD=gestibgsuite
       ports:
         - 3307:3306
       expose:

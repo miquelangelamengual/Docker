@@ -1,0 +1,4 @@
+FROM mariadb:10-7
+
+ADD mariadbuser.sql /app
+RUN mysql -u root --password=sistemes > /app/mariadbuser.sql
