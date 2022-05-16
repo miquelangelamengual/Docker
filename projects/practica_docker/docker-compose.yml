@@ -2,18 +2,18 @@ version: '3'
 services:
 
     mariadb:
-    image: mariadb:10.7
-    environment:
-      - MARIADB_ROOT_PASSWORD=sistemes
-      - MARIADB_DATABASE=si
-      - MARIADB_USER=daw
-      - MARIADB_PASSWORD=12345678
-    expose:
-      - 3307
-    ports:
-      - 3307:3306
-    volumes:
-      - ./volumes/mariadb:/var/lib/mysql
+      image: mariadb:10.7
+      environment:
+        - MARIADB_ROOT_PASSWORD=sistemes
+        - MARIADB_DATABASE=si
+        - MARIADB_USER=daw
+        - MARIADB_PASSWORD=12345678
+      ports:
+        - 3307:3306
+      expose:
+        - 3307
+      volumes:
+        - ./volumes/mariadb:/var/lib/mysql
 
     phpmyadmin:
       image: phpmyadmin:5.1.3-apache
@@ -31,7 +31,7 @@ services:
         dockerfile: quasar
       volumes:
         - ./volumes/quasar:/app
-      port:
+      ports:
         - 8082:8082
       expose:
         - 8082
@@ -41,9 +41,9 @@ services:
         context: ./dockerfiles
         dockerfile: java
       ports: 
-       - 8080:8080
+        - 8080:8080
       expose:
-       - 8080
+        - 8080
       volumes:
         - ./volumes/java:/app
       command: mvn spring-boot:run -f ./pom.xml
