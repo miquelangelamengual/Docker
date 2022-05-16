@@ -1,4 +1,5 @@
 FROM mariadb:10-7
 
+WORKDIR /var/lib/mysql
 ADD mariadbuser.sql /app
 RUN mysql -u root --password=sistemes > /app/mariadbuser.sql
