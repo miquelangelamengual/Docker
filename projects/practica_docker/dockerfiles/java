@@ -1,0 +1,3 @@
+FROM maven:3-openjdk-11
+
+ADD ./client_secret_327064841381-u61m573maehp33k58018860pat18n490.apps.googleusercontent.com.json /var
