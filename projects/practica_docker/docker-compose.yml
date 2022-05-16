@@ -35,6 +35,7 @@ services:
         - 8082:8082
       expose:
         - 8082
+      command: npm run start
     
     java:
       build:
@@ -46,4 +47,4 @@ services:
         - 8080
       volumes:
         - ./volumes/java:/app
-      command: mvn spring-boot:run -f ./pom.xml
+      command: mvn spring-boot:run -f /app/pom.xml -e

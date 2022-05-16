@@ -1,3 +1,4 @@
 FROM maven:3-openjdk-11
 
 ADD clave-secreta.json /var
+WORKDIR /app
