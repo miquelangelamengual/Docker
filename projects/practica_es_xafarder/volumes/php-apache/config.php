@@ -3,6 +3,6 @@
 $servername = "database";
 $username = "root";
 $password = "sistemes";
-$db = "si";
+$db = "esxafarder";
 
 $conn = new mysqli($servername, $username, $password,$db);
