@@ -1,0 +1,27 @@
+version: '3'
+services:
+
+  database:
+    image: mariadb:10.7
+    environment:
+      - MARIADB_ROOT_PASSWORD=sistemes
+      - MARIADB_DATABASE=esxafarder
+      - MARIADB_USER=mangel
+      - MARIADB_PASSWORD=mangel
+    ports: 
+       - 3307:3306
+    expose:
+      - 3307
+    volumes:
+      - ./volumes/mariadb:/var/lib/mysql
+  
+  php-apache:
+    build:
+      context: ./dockerfiles
+      dockerfile: php-apache
+    ports:
+      - 80:80
+    expose:
+      - 80
+    volumes:
+      - ./volumes/php-apache:/var/www/html

@@ -5,3 +5,4 @@ Docker és una tecnologia per crear i executar contenidors de Linux, i Vagrant �
 Sa major diferencia es que es copy es fa una vegada quan el contenidor s'inicia i compartir un volum es que sempre estar alla per posar fitxers y nomes es funcional a una ruta en concreta del contenidor mentres que el copy el pots fer a qualsevol part del contenidor.
 
 3- Quina diferència hi ha entre les imatges "normals", les "alpine" i les "slim"?
+Les prinicipals diferencies tenen a veure amb el contingut que tenen i es tamany que ocupen dins la maquina, per exemple la versio alpine es sa que pesa menos, es a dir que es una imatge mes lleugera en comparacio a la slim o normal.
