@@ -28,13 +28,14 @@ services:
   backend:
     build:
       context: ./dockerfiles
-      dockerfile: apache
+      dockerfile: backend
     volumes:
-      - ./volumes:/home/node/app
+      - ./volumes/backend:/home/node/app
     ports:
       - 8081:3000
     expose:
       - 8081
+    command: npm start
 
   phpmyadmin:
     image: phpmyadmin:5.1.3-apache

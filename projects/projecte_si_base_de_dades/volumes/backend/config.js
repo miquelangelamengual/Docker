@@ -1,9 +1,9 @@
 const config = {
     db: {
-      host: "",
-      user: "",
-      password: "",
-      database: "",
+      host: "mariadb",
+      user: "root",
+      password: "sistemes",
+      database: "si",
     },
     listPerPage: 10,
   };

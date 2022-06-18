@@ -1,4 +1,4 @@
 FROM node:16
 
-RUN npm start
-COPY package*.json ./
+WORKDIR /home/node/app
+COPY package*.json ./home/node/app
